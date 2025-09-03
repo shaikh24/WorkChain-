@@ -1,0 +1,17 @@
+# Env files
+.env
+backend/.env
+frontend/.env
+mobile_flutter/.env
+
+# Logs
+*.log
+
+# Node
+node_modules/
+dist/
+build/
+
+# Flutter
+.dart_tool/
+build/

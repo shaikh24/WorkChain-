@@ -1,0 +1,1 @@
+const express = require('express'); const router = express.Router(); router.get('/users', async (req,res)=>{ const User = require('../models/User'); const users = await User.find({ kyc_verified: false }).limit(50); res.json(users); }); module.exports = router;

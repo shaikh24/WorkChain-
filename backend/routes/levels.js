@@ -1,0 +1,1 @@
+const express = require('express'); const router = express.Router(); const levels=[{name:'Silver',min_points:0,benefits:['Basic access']},{name:'Gold',min_points:500,benefits:['Priority']},{name:'Platinum',min_points:1000,benefits:['Top search']},{name:'Diamond',min_points:2000,benefits:['0% fee']}]; router.get('/',(req,res)=>res.json(levels)); module.exports = router;

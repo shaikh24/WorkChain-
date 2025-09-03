@@ -1,0 +1,4 @@
+import 'package:flutter/material.dart'; import 'dart:convert'; import 'package:http/http.dart' as http;
+class HomeScreen extends StatefulWidget { @override _HomeScreenState createState() => _HomeScreenState(); }
+class _HomeScreenState extends State<HomeScreen> { List gigs=[]; bool loading=true; @override void initState(){ super.initState(); fetch(); } Future<void> fetch() async { try { final res = await http.get(Uri.parse('http://10.0.2.2:5000/api/gigs')); final data = json.decode(res.body); setState(()=>gigs=data); } catch(e){ } setState(()=>loading=false); }
+  @override Widget build(BuildContext context){ return Scaffold(appBar: AppBar(title: Text('Gigs')), body: loading? Center(child:CircularProgressIndicator()) : ListView.builder(itemCount: gigs.length, itemBuilder: (_,i){ final g=gigs[i]; return ListTile(title: Text(g['title'] ?? ''), onTap: ()=> Navigator.pushNamed(context,'/gig', arguments: g)); })); }
