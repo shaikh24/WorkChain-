@@ -15,3 +15,7 @@ build/
 # Flutter
 .dart_tool/
 build/
+
+node_modules
+.env
+uploads
